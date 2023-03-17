@@ -1,0 +1,6 @@
+{
+	"runtime": "nodejs16.x",
+	"handler": "..\\..\\..\\..\\..\\Users\\tr43o\\Desktop\\tr43oChat\\.svelte-kit\\vercel-tmp\\index.js",
+	"launcherType": "Nodejs",
+	"experimentalResponseStreaming": true
+}

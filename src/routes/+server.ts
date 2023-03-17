@@ -2,16 +2,16 @@ import type { RequestHandler } from '@sveltejs/kit';
 import { json } from '@sveltejs/kit';
 import { Configuration, OpenAIApi, type ChatCompletionRequestMessage } from 'openai';
 
-import { env } from '$env/dynamic/private';
+import { OPENAI_TOKEN } from '$env/static/private';
 const configuration = new Configuration({
-	apiKey: env.OPENAI_TOKEN
+	apiKey: OPENAI_TOKEN
 });
 
 const openai = new OpenAIApi(configuration);
 
 export const POST = (async ({ request }) => {
 	try {
-		if (!env.OPENAI_TOKEN) {
+		if (!OPENAI_TOKEN) {
 			throw new Error('OPENAI_KEY env variable not set');
 		}
 
@@ -37,9 +37,11 @@ export const POST = (async ({ request }) => {
 
 		const chatGPTMessage = chatGPT.data.choices[0].message;
 
+		console.log(chatGPTMessage);
+
 		return json(chatGPTMessage);
 	} catch (error) {
-		console.error(error);
+		// console.error(error);
 		return json({ error: 'There was an error processing your request' }, { status: 500 });
 	}
 }) satisfies RequestHandler;
