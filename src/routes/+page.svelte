@@ -9,7 +9,7 @@
 	<h1 class="text-3xl font-bold">Chad GPT 👺</h1>
 </header>
 
-<main class=" min-h-screen max-w-lg mx-auto mb-24">
+<main class="  max-w-lg mx-auto mb-24">
 	<div>
 		{#each $messages as { content, role }, i}
 			<ChatBubble start={i % 2 !== 0}>
