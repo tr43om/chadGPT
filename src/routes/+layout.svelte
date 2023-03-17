@@ -5,8 +5,6 @@
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-<svelte:head />
-
 <div class="px-4 py-6 mx-auto ">
 	<slot />
 </div>
