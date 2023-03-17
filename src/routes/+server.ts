@@ -3,7 +3,6 @@ import { json } from '@sveltejs/kit';
 import { Configuration, OpenAIApi, type ChatCompletionRequestMessage } from 'openai';
 
 import { OPENAI_TOKEN } from '$env/static/private';
-
 const configuration = new Configuration({
 	apiKey: OPENAI_TOKEN
 });
