@@ -2,16 +2,16 @@ import type { RequestHandler } from '@sveltejs/kit';
 import { json } from '@sveltejs/kit';
 import { Configuration, OpenAIApi, type ChatCompletionRequestMessage } from 'openai';
 
-import { OPENAI_TOKEN } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 const configuration = new Configuration({
-	apiKey: OPENAI_TOKEN
+	apiKey: env.OPENAI_TOKEN
 });
 
 const openai = new OpenAIApi(configuration);
 
 export const POST = (async ({ request }) => {
 	try {
-		if (!OPENAI_TOKEN) {
+		if (!env.OPENAI_TOKEN) {
 			throw new Error('OPENAI_KEY env variable not set');
 		}
 
